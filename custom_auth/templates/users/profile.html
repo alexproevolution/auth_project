@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Профиль пользователя{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h1 class="mb-0">Профиль: {{ user.get_full_name }} ({{ user.email }})</h1>
+                </div>
+                <div class="card-body">
+                    <p><strong>Дата регистрации:</strong> {{ user.date_joined|date:"d.m.Y H:i" }}</p>
+                    <p><strong>Статус:</strong> {% if user.is_active %}Активен{% else %}Удалён{% endif %}</p>
+                    
+                    <div class="d-grid gap-2 d-md-block">
+                        <a href="{% url 'users:profile_update' %}" class="btn btn-primary me-md-2">Редактировать профиль</a>
+                        
+                        <a href="{% url 'users:profile_delete' %}" 
+                           class="btn btn-danger me-md-2" 
+                           onclick="return confirm('Вы уверены? Удаление аккаунта необратимо!');">
+                           Удалить аккаунт
+                        </a>
+                        
+                        <a href="{% url 'users:logout' %}" class="btn btn-secondary me-md-2">Выйти из системы</a>
+                        <a href="{% url 'users:home' %}" class="btn btn-outline-primary">На главную</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

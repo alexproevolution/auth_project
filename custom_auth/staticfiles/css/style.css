@@ -1,0 +1,23 @@
+/* Custom стили для вашего проекта */
+body { 
+    background-color: #f8f9fa !important;  /* Светло-серый фон, переопределяет Bootstrap */
+}
+.navbar-brand { 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+}
+.btn-primary { 
+    background-color: #0d6efd;  /* Синий цвет кнопок */
+    border-color: #0d6efd;
+}
+.card { 
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);  /* Лёгкая тень для карточек */
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+.toast { 
+    min-width: 300px;  /* Минимальная ширина уведомлений */
+}
+/* Адаптив: На мобильных — больше отступы */
+@media (max-width: 768px) {
+    .container { padding: 0 15px; }
+}
